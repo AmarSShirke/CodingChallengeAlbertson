@@ -37,7 +37,7 @@ class AcromineVC: UIViewController {
     func observeEvent() {
         
         acromineViewModel.eventHandler = { [weak self] event in
-            guard let self else { return }
+            guard let self = self else { return }
             
             switch event {
             
@@ -57,6 +57,7 @@ class AcromineVC: UIViewController {
                 self.hideSpinner()
                 if (errorMsg != nil){
                     DispatchQueue.main.async {
+                        self.acromineTableView.reloadData()
                         let alert = UIAlertController(title: errorMsg, message: nil, preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "OK", style: .default))
                         self.present(alert, animated: true)

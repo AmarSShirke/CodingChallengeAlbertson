@@ -15,5 +15,6 @@ struct ApiEndpoints
 struct StringMessage
 {
     static let validInputStr = "Please enter valid input."
+    static let noResultFoundStr = "No result found."
     
 }

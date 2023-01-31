@@ -10,7 +10,7 @@ import XCTest
 
 final class AcromineHandlerIntegrationTest: XCTestCase {
     
-    func test_LoginHandler_WithValidRequest_Returns_LoginData(){
+    func test_AcromineHandler_WithValidRequest_Returns_Data(){
         
         let request = AcromineRequest(lf: "", sf: "UK")
         let handler = AcromineHandler()
@@ -18,14 +18,29 @@ final class AcromineHandlerIntegrationTest: XCTestCase {
         
         handler.findAcromine(request: request) { acromineData in
             XCTAssertNotNil(acromineData)
-            XCTAssertEqual(request.sf, acromineData?.response?[0].sf)
+            XCTAssertEqual(request.sf, acromineData?.response?[0].sf,"sf match")
             acromineExpectations.fulfill()
         }
         
         waitForExpectations(timeout: 5, handler: nil)
     }
     
-    //Note: Can't write remaining test cases because if I pass any invalid parameter like special character or number even though API didn't give any error message it returns empty array.
+    
+    func test_AcromineHandler_WithValidRequest_Returns_BlankData(){
+        
+        let request = AcromineRequest(lf: "", sf: "N")
+        let handler = AcromineHandler()
+        let acromineExpectations = expectation(description: "WithValidRequest_Returns_AcromineData")
+        
+        handler.findAcromine(request: request) { acromineData in
+            XCTAssertNotNil(acromineData)
+            XCTAssertEqual(acromineData?.response?.count, 0, "Acronym is empty")
+            acromineExpectations.fulfill()
+        }
+        
+        waitForExpectations(timeout: 30, handler: nil)
+
+    }
 }
 
 

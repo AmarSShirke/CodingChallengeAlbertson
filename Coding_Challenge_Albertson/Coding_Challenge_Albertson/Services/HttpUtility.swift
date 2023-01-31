@@ -4,7 +4,6 @@
 //
 //  Created by Amar Shirke on 25/01/23.
 //
-
 import Foundation
 
 struct HttpUtility
@@ -13,24 +12,22 @@ struct HttpUtility
     {
         URLSession.shared.dataTask(with: requestUrl) { (responseData, httpUrlResponse, error) in
             
-            guard let responseData, error == nil else {
-                return
+            if(error == nil && responseData != nil && responseData?.count != 0)
+            {
+                guard let response = httpUrlResponse as? HTTPURLResponse,
+                      200 ... 299 ~= response.statusCode else {
+                    return
+                }
+                
+                let decoder = JSONDecoder()
+                do {
+                    let result = try decoder.decode(T.self, from: responseData!)
+                    _ = completionHandler(result)
+                }catch let error{
+                    debugPrint("error occured while decoding = \(error)")
+                }
+                
             }
-
-            guard let response = httpUrlResponse as? HTTPURLResponse,
-                  200 ... 299 ~= response.statusCode else {
-                return
-            }
-     
-            let decoder = JSONDecoder()
-            do {
-                let result = try decoder.decode(T.self, from: responseData)
-                _ = completionHandler(result)
-            }catch let error{
-                debugPrint("error occured while decoding = \(error)")
-            }
-            
-
         }.resume()
     }
     

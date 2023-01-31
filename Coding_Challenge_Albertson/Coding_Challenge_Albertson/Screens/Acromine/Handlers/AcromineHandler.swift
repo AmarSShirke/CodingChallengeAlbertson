@@ -18,7 +18,11 @@ final class AcromineHandler {
         if(validationResult.isValid) {
             
             acromineApiResource.getAcromine(acromineRequest: request) { result in
-                completionHandler(ResponseData(errorMessage: nil, response: result))
+                if result?.count == 0 {
+                    completionHandler(ResponseData(errorMessage: StringMessage.noResultFoundStr, response: result))
+                }else{
+                    completionHandler(ResponseData(errorMessage: nil, response: result))
+                }
             }
             
         }else{

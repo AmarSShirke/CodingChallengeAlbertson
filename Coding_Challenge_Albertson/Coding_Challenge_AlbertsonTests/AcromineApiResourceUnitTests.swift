@@ -20,14 +20,29 @@ final class AcromineApiResourceUnitTests: XCTestCase {
         resource.getAcromine(acromineRequest: request) { acromineResponse in
             
             XCTAssertNotNil(acromineResponse)
-            XCTAssertEqual(request.sf, acromineResponse?[0].sf)
+            XCTAssertEqual(request.sf, acromineResponse?[0].sf, "sf match")
             expectation.fulfill()
         }
         
-        waitForExpectations(timeout: 5, handler: nil)
+        waitForExpectations(timeout: 30, handler: nil)
         
     }
     
-    //Note: Can't write test_AcromineApiResource_with_ValidRequest_Returns_Error because if I pass any invalid parameter like special character or number even though API didn't give any error message it returns empty array.
+    func test_AcromineApiResource_with_ValidRequest_Returns_Blank(){
+
+        let request = AcromineRequest(lf: "", sf: "N")
+        let resource = AcromineResource()
+        let expectation = self.expectation(description: "ValidRequest_Returns_Blank")
+        
+        resource.getAcromine(acromineRequest: request) { acromineResponse in
+            
+            XCTAssertNotNil(acromineResponse)
+            XCTAssertEqual(acromineResponse?.count, 0, "Acronym is empty")
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 30, handler: nil)
+
+    }
     
 }
