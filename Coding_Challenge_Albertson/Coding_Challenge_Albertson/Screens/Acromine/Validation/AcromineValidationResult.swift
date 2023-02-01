@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK :- Validation Result Model
 struct AcromineValidationResult
 {
     let isValid: Bool

@@ -7,7 +7,7 @@
 
 import Foundation
 
-
+// MARK :- Response Model
 struct AcromineResponseModel: Decodable {
     let sf: String
     let lfs: [Acromine]

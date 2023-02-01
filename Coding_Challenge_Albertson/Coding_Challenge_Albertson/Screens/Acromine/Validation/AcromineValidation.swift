@@ -9,7 +9,7 @@ import Foundation
 
 
 final class AcromineValidation {
-
+    // MARK :-  Check validation
     func Validate(acromineRequest: AcromineRequest) -> AcromineValidationResult
     {
         let searchText = acromineRequest.sf ?? ""

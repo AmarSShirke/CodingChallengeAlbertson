@@ -9,6 +9,7 @@ import Foundation
 
 final class AcromineResource
 {
+    // MARK :-  Call API
     func getAcromine(acromineRequest: AcromineRequest, completion: @escaping(_ result : Acromines?) -> Void)
     {
         let httpUtility = HttpUtility()

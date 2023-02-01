@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK :- Request Model
 struct AcromineRequest
 {
     var lf: String?

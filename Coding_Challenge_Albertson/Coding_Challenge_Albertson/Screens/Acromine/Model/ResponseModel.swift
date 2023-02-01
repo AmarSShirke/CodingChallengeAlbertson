@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK :- Data Response Model
 struct ResponseData: Decodable {
     let errorMessage: String?
     let response: Acromines?

@@ -27,6 +27,7 @@ class AcromineVC: UIViewController {
     
     }
     
+    // MARK: - Initial Setup
     func initialSetup()
     {
         hideSpinner()

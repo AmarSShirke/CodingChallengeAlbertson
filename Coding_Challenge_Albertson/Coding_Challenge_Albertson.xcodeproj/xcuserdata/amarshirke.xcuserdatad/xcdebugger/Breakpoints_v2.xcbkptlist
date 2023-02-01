@@ -14,8 +14,8 @@
             filePath = "Coding_Challenge_Albertson/Screens/Acromine/ViewModel/AcromineViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
             landmarkName = "getAcromines(lf:sf:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,9 +30,25 @@
             filePath = "Coding_Challenge_Albertson/Screens/Acromine/View/AcromineVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
             landmarkName = "searchBar(_:textDidChange:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AB488811-D4CA-4262-828F-E951D4BF1705"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Coding_Challenge_Albertson/Screens/Acromine/DataResource/AcromineResource.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "getAcromine(acromineRequest:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

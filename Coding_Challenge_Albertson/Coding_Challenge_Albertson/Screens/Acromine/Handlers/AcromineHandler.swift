@@ -12,6 +12,7 @@ final class AcromineHandler {
     private let validation = AcromineValidation()
     private let acromineApiResource = AcromineResource()
 
+    // MARK :- Handler who check validtion and api resource.
     func findAcromine(request: AcromineRequest, completionHandler: @escaping(_ responseData: ResponseData?)->()) {
 
         let validationResult = validation.Validate(acromineRequest: request)

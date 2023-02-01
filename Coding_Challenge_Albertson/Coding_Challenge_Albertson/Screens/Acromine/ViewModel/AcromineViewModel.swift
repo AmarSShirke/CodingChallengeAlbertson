@@ -7,11 +7,14 @@
 
 import Foundation
 
+
 class AcromineViewModel
 {
+    // MARK: - Variables
     var eventHandler: ((_ event: Event) -> Void)?
     var acromineDataArray : [Acromine]? = nil
     
+    // MARK: - ViewModel Method
     func getAcromines(lf: String, sf: String)
     {
         self.eventHandler?(.loading)
